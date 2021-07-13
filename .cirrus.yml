@@ -4,7 +4,7 @@ env: # Environt variable to pass to all tasks
 
     # For rclone with google drive or any cloud! After first commit pushing, login to https://cirrus-ci.com , click top left corner 3 dot menu, click repository(yourname/aosp-builder) > Repository Settings > Secured Variables > enter content of ~/.config/rclone/rclone.conf (from pc where you setup rclone) > ENCRYPT, copy that ENCRYPTED hash
     # ENCRYPTED variables is unique for every repository, so you cant use my one, create you rclone config https://rclone.org/drive/#making-your-own-client-id
-    rclone_config: "ENCRYPTED[ya29.a0ARrdaM-uWnAwoYoE96FwBHE59tIeRB_Ignho1kVr1kwpubqtf4L8F3dxA37zm_wVWgfpqJ3JdeSMt4ZizSDWdE6z5eUHtjKv5LzM6Tx-RZZBM3iQMvNu0Y5sNRei8eGM5RAZk9245kxgfCViZ77poXcySo6E]"
+    rclone_config: "ENCRYPTED[8213c585e3bc9801bec80928735752d782ec0dc56ed425b9c7585bfa74291e204ffbff9484871a77041d2251412638a7]"
 
 task:
     name: aosp # Project name
@@ -14,7 +14,7 @@ task:
       cpu: 4 #8 cpu for dummy build, 10 or more cpu for final build, sometimes more than 8 cpu will cause a timelock, so you wont be able to run ci again within few hours, in build script use -j8 or -j10 depending what you used here, otherwise low memory issue will happen, 16cpu highest
       memory: 8G # So that we can have ram when needed, 24G highest
     download_ccache_background_script: # To download ccache in background
-      - ./download_ccache # Ccache download script
+#      - ./download_ccache # Ccache download script
     sync_script: # To sync source
       - ./sync # Source sync script
     monitor_background_script: # To monitor ccache and machine status every minute, runs in background
@@ -22,4 +22,4 @@ task:
     build_script: # Actual build script foreground
       - ./build # Build script to run
     upload_ccache_script: # Upload ccache to cloud foreground
-      - ./upload_ccache # Ccache uploading script
+ #     - ./upload_ccache # Ccache uploading script
