@@ -16,10 +16,10 @@ task:
 #    download_ccache_background_script: # To download ccache in background
 #      - ./download_ccache # Ccache download script
     sync_script: # To sync source
-      - ./sync.sh # Source sync script
+      - bash sync.sh # Source sync script
 #    monitor_background_script: # To monitor ccache and machine status every minute, runs in background
 #      - ./monitor # Monitor script
     build_script: # Actual build script foreground
-      - ./build.sh # Build script to run
+      - bash build.sh # Build script to run
  #   upload_ccache_script: # Upload ccache to cloud foreground
  #     - ./upload_ccache # Ccache uploading script
